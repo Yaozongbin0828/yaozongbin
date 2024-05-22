@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-ff769c06","path":"/tags/Githubhuizhang/1/","title":"","lang":"en-US","frontmatter":{"layout":"Categories"},"headers":[],"git":{},"filePathRelative":null}');export{t as data};

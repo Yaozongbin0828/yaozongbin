@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding-Introduce</title>
+    <style id="Rstyle">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      *::before {
+        box-sizing: border-box;
+      }
+
+      *::after {
+        box-sizing: border-box;
+      }
+
+      #app {
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html {
+        min-height: 100vh;
+      }
+
+      .htmlMode {
+        animation: flip 2s;
+      }
+
+      @keyframes flip {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.13/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/0.3.5/marked.min.js"></script>
+    <script src="prism.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="styleEditor" ref="styleEditor">
+        <pre>
+          <code v-html="heightLightCode" class="language-css"></code>
+        </pre>
+        <div style="display: none" v-html="styleCode"></div>
+      </div>
+      <div
+        class="resumeEditor"
+        :class="{htmlMode:enableHtml}"
+        ref="resumeEditor"
+      >
+        <div v-if="enableHtml" v-html="Markdown"></div>
+        <pre v-else v-html="Markdown"></pre>
+      </div>
+    </div>
+    <script>
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          width: 0, //判断机型
+          interval: 40,
+          currentStyle: "",
+          enableHtml: false, //用是否转换markdown
+          fullStyle: [],
+          fullPStyle: [
+            `
+      /*
+      * 你们好啊,我是练习时长🐔两年半的......
+      * 不不不,我是一个一只想变成大佬的小白 yaozongbin 🐱‍👤
+      * 目前兴趣是前端开发,今天比较无聊,所以我就做一张个人简历介绍一下我自己吧嘿嘿嘿~~~
+      * 容我改造一下环境👇
+      */
+      /* 首先给所有元素加上过渡效果 */
+      * {
+        transition: all .3s;
+      }
+
+      /* 白色背景太单调了，加点背景呗 */
+      html {
+        color: rgb(222,222,222);
+        background: rgb(0,43,54);
+      }
+
+      /* 文字离边框太近了,一点不好看 */
+      .styleEditor {
+        padding: .5em;
+        border: 1px solid;
+        margin: .5em;
+        overflow: auto;
+        width: 45vw; height: 90vh;
+      }
+
+      /* 代码都区分不开了,开启高亮模式 */
+      .token.selector{ color: rgb(133,153,0); }
+      .token.property{ color: rgb(187,137,0); }
+      .token.punctuation{ color: yellow; }
+      .token.function{ color: rgb(42,161,152); }
+
+      /* 加点3D效果涨涨B格 */
+      html{
+        perspective: 1000px;
+      }
+      .styleEditor {
+        position: fixed; left: 0; top: 0;
+        -webkit-transition: none;
+        transition: none;
+        -webkit-transform: rotateY(10deg) translateZ(-100px) ;
+                transform: rotateY(10deg) translateZ(-100px) ;
+      }`,
+            `
+      /* 再来准备一张纸 */
+      .resumeEditor{
+        position: fixed; right: 0; top: 0;
+        padding: .5em;  margin: .5em;
+        width: 48vw; height: 90vh;
+        border: 1px solid;
+        background: white; color: #222;
+        overflow: auto;
+      }
+      /* 好了，我开始介绍了 */
+                `,
+            `
+      /*
+       * 好像差点味道呀......不如放点调味料?
+       * emmm....好吧其实这是markdown格式的内容,转换一下吧
+       */
+      `,
+            `
+      /*
+        哈哈,markdown转换器真好用
+        再来对里面加点样式
+      */
+      .resumeEditor{
+        padding: 2em;
+      }
+      .resumeEditor h2{
+        display: inline-block;
+        border-bottom: 1px solid;
+        margin: 1em 0 .5em;
+      }
+      .resumeEditor strong{
+        margin-right:.2em;
+      }
+      `,
+            `
+      /* 仔细想了下还是控制台需要一个主题,那么.... */
+      `,
+            `
+       /* 怎么样?很神奇吧。好了,剩下的交给你们看好了 */
+      `,
+          ],
+          fullMStyle: [
+            `
+     /*
+     * 你们好啊,我是练习时长🐔两年半的......
+      * 不不不,我是一个一只想变成大佬的小白 yaozongbin 🐱‍👤
+      * 目前兴趣是前端开发,今天比较无聊,所以我就做一张个人简历介绍一下我自己吧嘿嘿嘿~~~
+      * 容我改造一下环境👇
+      */
+
+      /* 首先给所有元素加上过渡效果 */
+      * {
+        transition: all .3s;
+      }
+
+      /* 白色背景太单调了，加点背景呗 */
+      html {
+        color: rgb(222,222,222);
+        background: rgb(0,43,54);
+      }
+
+      /* 文字离边框太近了 */
+      .styleEditor {
+        padding: .5em;
+        border: 1px solid;
+        overflow: auto;
+        width: 90vw;
+        margin: 2.5vh 5vw;
+        height: 90vh;
+      }
+     /* 这界面有点大啊 */
+       .styleEditor {
+         height: 45vh;
+       }
+    /* 代码都区分不开了,开启高亮模式 */
+       .token.selector{
+          color: rgb(133,153,0);
+       }
+       .token.property{
+          color: rgb(187,137,0);
+       }
+        .token.punctuation{
+            color: yellow;
+       }
+        .token.function{
+            color: rgb(42,161,152);
+       }
+
+        /* 加点3D效果涨涨B格 */
+        html{
+            perspective: 1000px;
+        }
+        .styleEditor {
+            position: fixed;
+            left: 0;
+            top: 0;
+            transform: rotateX(-10deg) translateZ(-50px) ;
+        }`,
+            `
+        /* 再来准备一张纸 */
+        .resumeEditor{
+            position: fixed;
+            top: 50%;
+            left: 0;
+            padding: .5em;
+            margin: 2.5vh;
+            width: 95vw;
+            height: 45vh;
+            border: 1px solid;
+            background: white;
+            color: #222;
+            overflow: auto;
+        }
+        /* 好了，我开始介绍了 */
+
+    `,
+            `
+      /*
+       * 好像差点味道呀......不如放点调味料?
+       * emmm....好吧其实这是markdown格式的内容
+       * 转换一下吧
+       */
+      `,
+            `
+      /*
+        哈哈,markdown转换器真好用
+        再来对里面加点样式
+      */
+      .resumeEditor{
+        padding: 2em;
+      }
+      .resumeEditor h2{
+        display: inline-block;
+        border-bottom: 1px solid;
+        margin: 1em 0 .5em;
+      }
+      .resumeEditor strong{
+        margin-right:.2em;
+      }
+      `,
+            `
+      /* 仔细想了下还是控制台需要一个主题,那么.... */
+      `,
+            `
+       /* 怎么样?很神奇吧。好了,那么剩下的就交给你们了 */
+      `,
+          ],
+          theme: `<link href="https://cdn.bootcdn.net/ajax/libs/prism/1.16.0/themes/prism.min.css" rel="stylesheet">`,
+          currentMarkdown: "",
+          fullMarkdown: `
+  ## 个人资料
+
+  **姓名:**yaozongbin
+
+  **年龄:**22
+
+  **学历:**大三
+
+  **专业:**计算机科学与技术
+
+  **在读学校:**广西xx大学xx学院
+
+  **学习方向:**web前端(向全栈方向看齐！！！)
+
+
+
+  ## 专业技能
+
+  - H5特效开发
+  - Vue.js前端开发
+  - 微信小程序开发
+  - Node.js后端开发
+
+
+
+  ## 正在学习
+
+  - Vue+Node.js全栈开发
+  - React.js、React-Native、Angular.js等
+  - JAVA、Mysql等大学必修课
+  - 思考人生(emmm.....)
+
+
+
+  ## 大型项目
+
+  别看了,目前还没有-_-!!
+
+
+
+  ## 兴趣爱好
+
+  敲代码、睡觉、干饭、运动......
+
+
+
+  ## 总结
+
+  现在还是个菜鸡,希望归来时有所进步吧.........
+
+    `,
+        },
+        methods: {
+          //工具函数
+          goStyleBottom() {
+            this.$refs.styleEditor.scrollTop = 100000;
+          },
+          goResumeBottom() {
+            this.$refs.resumeEditor.scrollTop = 100000;
+          },
+          async showRender() {
+            await this.styleRender(0);
+            await this.styleRender(1);
+            await this.resumeRender();
+            await this.styleRender(2);
+            await this.showHTML();
+            await this.styleRender(3);
+            if (this.width > 500) {
+              await this.styleRender(4);
+              await new Promise((resolve, reject) => {
+                setTimeout(this.showTheme.bind(this, resolve), 1000);
+              });
+              await new Promise((resolve, reject) => {
+                this.goStyleBottom();
+                this.interval = 100;
+                resolve();
+              });
+            }
+
+            await setTimeout(this.styleRender, 1000, 5);
+          },
+          styleRender(n) {
+            return new Promise((resolve, reject) => {
+              let interval = this.interval;
+              let showStyle = async () => {
+                let style = this.fullStyle[n];
+                if (!style) {
+                  return;
+                }
+                // 计算前 n 个 style 的字符总数
+                let length = this.fullStyle
+                  .filter((_, index) => index <= n)
+                  .map((item) => item.length)
+                  .reduce((p, c) => p + c, 0);
+                let prefixLength = length - style.length;
+                if (this.currentStyle.length < length) {
+                  let l = this.currentStyle.length - prefixLength;
+                  let char = style.substring(l, l + 1) || " ";
+                  this.currentStyle += char;
+                  if (
+                    style.substring(l - 1, l) === "\n" &&
+                    this.$refs.styleEditor
+                  ) {
+                    this.$nextTick(() => {
+                      this.goStyleBottom();
+                    });
+                  }
+                  setTimeout(showStyle, interval); //循环调用,相当于定时器
+                } else {
+                  resolve(); //promise返回
+                }
+              };
+              showStyle();
+            });
+          },
+          showTheme(callback) {
+            let header = document.getElementById("header");
+            let Rstyle = document.getElementById("Rstyle");
+            let link = document.createElement("link");
+            link.setAttribute("rel", "stylesheet");
+            link.setAttribute("href", "./css/prism.css");
+            header.insertBefore(link, Rstyle);
+            callback();
+          },
+          resumeRender() {
+            return new Promise((resolve, reject) => {
+              let length = this.fullMarkdown.length;
+              let interval = this.interval;
+              let showResume = () => {
+                if (this.currentMarkdown.length < length) {
+                  this.currentMarkdown = this.fullMarkdown.substring(
+                    0,
+                    this.currentMarkdown.length + 1
+                  );
+                  let lastChar =
+                    this.currentMarkdown[this.currentMarkdown.length - 1];
+                  let prevChar =
+                    this.currentMarkdown[this.currentMarkdown.length - 2];
+                  if (prevChar === "\n" && this.$refs.resumeEditor) {
+                    this.$nextTick(() => this.goResumeBottom());
+                  }
+                  setTimeout(showResume, interval);
+                } else {
+                  resolve();
+                }
+              };
+              showResume();
+            });
+          },
+          showHTML() {
+            return new Promise((resolve, reject) => {
+              this.enableHtml = true;
+              resolve();
+            });
+          },
+        },
+        computed: {
+          heightLightCode() {
+            return Prism.highlight(this.currentStyle, Prism.languages.css);
+          },
+          styleCode() {
+            return `<style>${this.currentStyle}</style>`;
+          },
+          Markdown() {
+            return this.enableHtml
+              ? marked(this.fullMarkdown)
+              : this.currentMarkdown;
+          },
+        },
+        created() {
+          this.width = document.documentElement.clientWidth;
+          this.fullStyle = this.width > 500 ? this.fullPStyle : this.fullMStyle;
+        },
+        mounted() {
+          this.showRender();
+        },
+      });
+    </script>
+  </body>
+</html>
