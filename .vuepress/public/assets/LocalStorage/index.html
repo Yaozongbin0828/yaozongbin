@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 150px auto;
+        background-color: antiquewhite;
+      }
+      .wrapper {
+        padding: 20px;
+        max-width: 550px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin: 0;
+        font-weight: 200;
+      }
+
+      .plates {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        list-style: none;
+      }
+
+      .plates li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        font-weight: 100;
+        display: flex;
+      }
+
+      .plates label {
+        flex: 1;
+        cursor: pointer;
+      }
+
+      .plates input {
+        display: none;
+      }
+
+      .plates input + label:before {
+        content: "⬜️";
+        margin-right: 10px;
+      }
+
+      .plates input:checked + label:before {
+        content: "🌮";
+      }
+
+      .add-items {
+        margin-top: 20px;
+      }
+      .add-items input:nth-child(1) {
+        width: 94%;
+        padding: 10px;
+        outline: 0;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .add-items input:nth-child(2) {
+        width: 49%;
+        padding: 10px;
+        outline: 0;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        width: 49%;
+        margin: 5px auto 0;
+        padding: 10px;
+        outline: 0;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h2>
+        A small demo - LocalStorage <br />
+        by Yao Zongbin
+      </h2>
+      <p></p>
+      <ul class="plates">
+        <li>正在加载待办项...</li>
+      </ul>
+      <form class="add-items">
+        <input type="text" name="item" placeholder="项目名称" required />
+        <input type="submit" value="+ 添加待办项" />
+
+        <button onclick="clearLocalStorage()">清除LocalStorage列表</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const addItems = document.querySelector(".add-items");
+    const itemsList = document.querySelector(".plates");
+    const items = JSON.parse(localStorage.getItem("items")) || []; // 本地存储中获取名为items的数据，并将其解析为JavaScript对象
+
+    // 添加待办事项函数
+    function addItem(e) {
+      e.preventDefault();
+      const text = this.querySelector("[name=item]").value;
+      const item = {
+        text,
+        done: false,
+      };
+
+      items.push(item);
+      populateList(items, itemsList);
+      localStorage.setItem("items", JSON.stringify(items));
+      this.reset(); // 重置表单的所有输入字段为它们的初始值
+    }
+
+    // 填充列表函数
+    function populateList(plates = [], platesList) {
+      platesList.innerHTML = plates
+        .map((plate, i) => {
+          return `
+        <li>
+          <input type="checkbox" data-index=${i} id="item${i}" ${
+            plate.done ? "checked" : ""
+          } />
+          <label for="item${i}">${plate.text}</label>
+        </li>
+      `;
+        })
+        .join("");
+    }
+
+    // 切换待办事项完成状态的函数
+    function toggleDone(e) {
+      if (!e.target.matches("input")) return; // 检查事件目标是否是一个input元素
+      const el = e.target; // 触发事件的目标元素
+      const index = el.dataset.index; // 获取索引
+      items[index].done = !items[index].done; // 通过取反操作来切换对应待办事项的done属性的状态
+      localStorage.setItem("items", JSON.stringify(items));
+      populateList(items, itemsList);
+    }
+
+    // 清空按钮
+    function clearLocalStorage() {
+      localStorage.removeItem("items");
+      itemsList.innerHTML = "<li>正在加载待办项...</li>"; // 清空待办事项列表的显示
+    }
+
+    // 添加监听器
+    addItems.addEventListener("submit", addItem);
+    itemsList.addEventListener("click", toggleDone);
+
+    populateList(items, itemsList);
+  </script>
+</html>
+.

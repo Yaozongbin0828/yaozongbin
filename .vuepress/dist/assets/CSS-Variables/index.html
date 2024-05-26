@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS变量控制图片的间距、背景颜色和模糊程度</title>
+  </head>
+  <body>
+    <h2>CSS变量和作用域 <span class="hl">JS</span></h2>
+
+    <div class="controls">
+      <label for="spacing">间距大小:</label>
+      <input
+        id="spacing"
+        type="range"
+        name="spacing"
+        min="10"
+        max="200"
+        value="10"
+        data-sizing="px"
+      />
+
+      <label for="blur">模糊程度:</label>
+      <input
+        id="blur"
+        type="range"
+        name="blur"
+        min="0"
+        max="25"
+        value="10"
+        data-sizing="px"
+      />
+
+      <label for="base">背景颜色</label>
+      <input id="base" type="color" name="base" value="#ffc600" />
+    </div>
+
+    <div class="active"></div>
+    <style>
+      :root {
+        --base: #ffc600;
+        --spacing: 10px;
+        --blur: 10px;
+      }
+
+      div.active {
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        padding: var(--spacing);
+        background: var(--base);
+        filter: blur(var(--blur));
+        /* filter: grayscale(100%); */
+      }
+
+      .hl {
+        color: var(--base);
+      }
+
+      body {
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: "helvetica neue", sans-serif;
+        font-weight: 100;
+        font-size: 30px;
+      }
+
+      .controls {
+        margin-bottom: 20px;
+      }
+
+      input {
+        width: 100px;
+      }
+    </style>
+
+    <script>
+      const inputs = document.querySelectorAll(".controls input");
+
+      function handleUpdate() {
+        // 获取控制元素的data-sizing属性中获取单位后缀,无data-sizing属性，则使用空字符串作为后缀(背景颜色)
+        const suffix = this.dataset.sizing || "";
+        // .setProperty()声明了 CSS 样式的对象设置一个新的值
+        document.documentElement.style.setProperty(
+          `--${this.name}`, // --spacing --blur
+          this.value + suffix
+        );
+      }
+
+      // 添加了change事件的监听器 控制元素的值发生变化时，会触发handleUpdate函数
+      inputs.forEach((input) => input.addEventListener("change", handleUpdate));
+    </script>
+  </body>
+</html>

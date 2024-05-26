@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>固定导航栏</title>
+    <style>
+      html {
+        box-sizing: border-box;
+        background: #eeeeee;
+        font-family: "helvetica neue";
+        font-size: 20px;
+        font-weight: 200;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .site-wrap {
+        max-width: 700px;
+        margin: 70px auto;
+        background: white;
+        padding: 40px;
+        text-align: justify;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
+        transform: scale(0.98);
+        transition: transform 0.5s;
+      }
+
+      body.fixed-nav .site-wrap {
+        transform: scale(1);
+      }
+
+      header {
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+        height: 50vh;
+        background: url(banner.jpg) bottom center no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        color: white;
+        font-size: 7vw;
+        text-shadow: 3px 4px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      nav {
+        background: black;
+        top: 0;
+        width: 100%;
+        transition: all 0.5s;
+        position: relative;
+        z-index: 1;
+      }
+
+      body.fixed-nav nav {
+        position: fixed;
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+      }
+
+      nav li {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      li.logo {
+        max-width: 0;
+        overflow: hidden;
+        background: white;
+        transition: all 0.5s;
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      li.logo a {
+        color: black;
+      }
+
+      .fixed-nav li.logo {
+        max-width: 500px;
+      }
+
+      nav a {
+        text-decoration: none;
+        padding: 20px;
+        display: inline-block;
+        color: white;
+        transition: all 0.2s;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        A small demo - Sticky Nav<br />
+        by Yao Zongbin
+      </h1>
+    </header>
+    <!-- 导航 -->
+    <nav id="main">
+      <ul>
+        <li class="logo"><a href="#">Yaozongbin</a></li>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">关于</a></li>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">科研力量</a></li>
+        <li><a href="#">人才招聘</a></li>
+      </ul>
+    </nav>
+    <!-- 内容 -->
+    <div class="site-wrap">
+      <p>
+        穿越到修真世界，没有修炼天赋怎么办？ 只能自创特殊金丹法了！
+        特殊金丹刚编织出来时，映照异象只有半径百米。
+        但每多编织一层，异象半径就翻倍。
+        当有一天，诸天万界的人同时看到挂在天空中的太阳，突然破壳，一个元婴从里面钻出来。
+        那一刻，诸天万界都将沸腾！
+      </p>
+      <p>
+        姜丘穿越到一个异族横行的高武现代，成西北省区高原市八中的一名高三学生。
+        古秘境复苏，野兽成妖，大口侵略人类领地，底层普通人生存艰难。
+        但姜丘发现，他只需要努力演练直至功法、技能臻至圆满，就能诞生不可思议的神通！
+        【虹枪贯月】：枪若长虹、锋芒鼎盛、贯穿九天明月！
+        【天罡法相】：刚躯内敛、金身外显、头顶万里苍穹！
+        【烛龙血脉】：开眼为昼、闭眼为夜、手握日月幽冥！
+        【齐天长寿】：延寿养生、壮大神魂、等齐天地之寿！
+        任何普通的能力，凭借独特的天赋，姜丘都能将之演练到超凡入圣的境地！
+        浩瀚的世界中，从此多了一位令武道尊者、妖中古帝都为之颤栗的存在。
+        姜丘厚积薄发，以一个无权无势的西北穷学生身份与他人争夺学武机会，争武道资源，争秘境机遇，争一切可争资源！
+        蓦然回首，已然无敌于世间！
+      </p>
+      <p>
+        天水！这种燃烧热值高于石油一千倍的液体矿藏一经开采，便彻底引爆了蒸汽革命！
+        在追求超越平凡力量的时候，法岚选择了药剂拔升，东洋选择了兵械驾驭，英格里选择了义体植入，德里图选择了外骨骼加持...
+        唯独傲立东方的荣国以武证道，熬练心炁，以凡人之躯叫板机械降神！
+        蒸汽，发条，植入体，黄铜齿轮；国术，武馆，呼吸法，技击杀人！
+        九国飞地，津门码头，本地帮派，外来神...
+        机械与古武并存，刀剑与枪炮并存，科学与宗教并存，愚昧与觉醒并存...
+        当心脏中枪的齐青崖从海河旁的烂棚子醒来，混不吝一个草莽，势要掀翻所有拦路之人！
+      </p>
+      <p>
+        穿越到修真世界，没有修炼天赋怎么办？ 只能自创特殊金丹法了！
+        特殊金丹刚编织出来时，映照异象只有半径百米。
+        但每多编织一层，异象半径就翻倍。
+        当有一天，诸天万界的人同时看到挂在天空中的太阳，突然破壳，一个元婴从里面钻出来。
+        那一刻，诸天万界都将沸腾！
+      </p>
+      <p>
+        姜丘穿越到一个异族横行的高武现代，成西北省区高原市八中的一名高三学生。
+        古秘境复苏，野兽成妖，大口侵略人类领地，底层普通人生存艰难。
+        但姜丘发现，他只需要努力演练直至功法、技能臻至圆满，就能诞生不可思议的神通！
+        【虹枪贯月】：枪若长虹、锋芒鼎盛、贯穿九天明月！
+        【天罡法相】：刚躯内敛、金身外显、头顶万里苍穹！
+        【烛龙血脉】：开眼为昼、闭眼为夜、手握日月幽冥！
+        【齐天长寿】：延寿养生、壮大神魂、等齐天地之寿！
+        任何普通的能力，凭借独特的天赋，姜丘都能将之演练到超凡入圣的境地！
+        浩瀚的世界中，从此多了一位令武道尊者、妖中古帝都为之颤栗的存在。
+        姜丘厚积薄发，以一个无权无势的西北穷学生身份与他人争夺学武机会，争武道资源，争秘境机遇，争一切可争资源！
+        蓦然回首，已然无敌于世间！
+      </p>
+      <p>
+        天水！这种燃烧热值高于石油一千倍的液体矿藏一经开采，便彻底引爆了蒸汽革命！
+        在追求超越平凡力量的时候，法岚选择了药剂拔升，东洋选择了兵械驾驭，英格里选择了义体植入，德里图选择了外骨骼加持...
+        唯独傲立东方的荣国以武证道，熬练心炁，以凡人之躯叫板机械降神！
+        蒸汽，发条，植入体，黄铜齿轮；国术，武馆，呼吸法，技击杀人！
+        九国飞地，津门码头，本地帮派，外来神...
+        机械与古武并存，刀剑与枪炮并存，科学与宗教并存，愚昧与觉醒并存...
+        当心脏中枪的齐青崖从海河旁的烂棚子醒来，混不吝一个草莽，势要掀翻所有拦路之人！
+      </p>
+    </div>
+    <script>
+      const nav = document.querySelector("#main");
+      let topOfNav = nav.offsetTop; // 获取了导舏栏元素距离文档顶部的偏移量
+
+      function fixNav() {
+        if (window.scrollY >= topOfNav) {
+          // 判断页面滚动位置是否超过了导舏栏元素距离顶部的偏移量
+          document.body.style.paddingTop = nav.offsetHeight + "px";
+          document.body.classList.add("fixed-nav");
+        } else {
+          document.body.classList.remove("fixed-nav");
+          document.body.style.paddingTop = 0;
+        }
+      }
+
+      //  添加一个滚动事件监听器
+      window.addEventListener("scroll", fixNav);
+    </script>
+  </body>
+</html>
