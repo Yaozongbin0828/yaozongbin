@@ -1,5 +1,5 @@
 ---
-title: JavaScript-master(基于JavaScript开发的小项目)
+title: JavaScript-master-1(基于JavaScript开发的小项目)
 date: 2024/5/15
 tags:
  - JavaScript
@@ -531,7 +531,5 @@ JavaScript 实现抓取拖拽效果在网页开发中有很多实际用途，其
     });
   </script>
 ```
-
-
 
 :::

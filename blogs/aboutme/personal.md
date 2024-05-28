@@ -1,6 +1,6 @@
 ---
 title: 个人简介
-date: 2024/3/19
+date: 2023/3/19
 tags: 
  - Author
 categories:
@@ -17,7 +17,6 @@ hideComments: false
 <iframe src="/assets/aboutme.html" scrolling="auto" frameborder="0" style="width:100%;height:90rem" >
 </iframe>
 
-
 ## 工作经历🌎
 
 <iframe src="https://player.bilibili.com/player.html?aid=1602365662&bvid=BV1bm421n7Kx&cid=1483150722&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:100%;height:27rem;"> </iframe>
@@ -26,16 +25,22 @@ hideComments: false
 
 深圳甄创科技有限公司 - zcDigital（团队负责人，7人）	2022 年 9 月- 2023 年 6月
 
+![1716897266897](image/personal/1716897266897.jpg)
+
+![1716897916580](image/personal/1716897916580.png)
+
+
+
 ::: details 工作内容💻
 
 1. 负责公司小程序从零到一的建设；
-1. 负责页面开发和维护，代码审查，设计原型；
-1. 通过前端低代码实现，搭建现代化前端工程；
-1. 使用动态组件完成动态表单，通过配置文件让不同的活动拥有不同的表单内容；
-1. 开发公用基础组件，如九宫格，大转盘等供团队使用。
-1. 通过Axure完成原型设计，与 UI 人员进行交涉。
-1. 负责收集、剪辑、制作视频
-1. 企业微信平台的维护与交互
+2. 负责页面开发和维护，代码审查，设计原型；
+3. 通过前端低代码实现，搭建现代化前端工程；
+4. 使用动态组件完成动态表单，通过配置文件让不同的活动拥有不同的表单内容；
+5. 开发公用基础组件，如九宫格，大转盘等供团队使用。
+6. 通过Axure完成原型设计，与 UI 人员进行交涉。
+7. 负责收集、剪辑、制作视频
+8. 企业微信平台的维护与交互
 
 :::
 
@@ -53,7 +58,7 @@ hideComments: false
 
 ## 联系方式❤
 
-::: info ContactInformation
+::: info SocialMethods
 
 ###### 学与思，琢与磨，知与行，相交错。奋者，功必成，开创者，业必兴。
 
