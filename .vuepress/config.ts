@@ -96,7 +96,7 @@ export default defineUserConfig({
         icon: "Share",
         link: "/",
         children: [
-          { text: "Github", link: "https://github.com/yaozongbin" },
+          { text: "Github", link: "https://github.com/yaozongbin0828" },
           { text: "Gitee", link: "https://gitee.com/yaozongbin" },
         ],
       },
