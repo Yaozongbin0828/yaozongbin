@@ -12,7 +12,7 @@ bannerBrand:
   description: 为学应尽毕生力，攀高须贵少年时
   tagline: 绚烂如电 虚幻如雾 哀愁和仰慕 - 「陈奕迅」
   buttons:
-    - { text: 关于我, link: '/blogs/aboutme/personal' }
+    - { text: 关于我, link: '/blogs/author/Author' }
     - { text: 加载中..., link: '/',type: 'plain'}
   socialLinks:
     - { icon: 'LogoGithub', link: 'https://github.com/yaozongbin' }

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialog</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(278deg, #ffa500, #ff6347);
+        padding: 20vh 0;
+        text-align: center;
+      }
+
+      .app {
+        height: 100vh;
+      }
+
+      h1 {
+        padding: 56px 0 0 0;
+        font-size: 110px;
+        text-align: center;
+        background: linear-gradient(to bottom, #fe4e00 50%, transparent 50%)
+          center center / 100vw 100vh fixed;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-stroke: 2px #fe4e00;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .dialog {
+        width: 31.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #ffffff;
+        margin: 10% auto;
+        padding: 20px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        color: #333;
+        max-width: 400px;
+        width: 90%;
+        position: relative;
+      }
+
+      .close {
+        color: #333;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      input[type="text"] {
+        width: calc(100% - 20px);
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #333;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 12px 24px;
+        background-color: #333;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <h1>Dialog</h1>
+      <div class="flex">
+        <div class="dialog">
+          <!-- showModal()模态框 -->
+          <button onclick="dog.showModal()">弹窗1</button>
+          <!-- H5 dialog弹窗标签  -->
+          <dialog id="dog">
+            <div class="win">
+              <p>JS-Dialog-1</p>
+              <p><input type="text" placeholder="Enter text..." /></p>
+              <p><input type="text" placeholder="Enter text..." /></p>
+              <button onclick="dog.close()">关闭</button>
+            </div>
+          </dialog>
+        </div>
+
+        <div class="dialog">
+          <button onclick="openModal()">弹窗2</button>
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <p>JS-Dialog-2</p>
+              <p><input type="text" placeholder="Enter text..." /></p>
+              <p><input type="text" placeholder="Enter text..." /></p>
+              <button onclick="modalSubmit()">提交</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function openModal() {
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function modalSubmit() {
+      alert("提交成功！");
+      closeModal();
+    }
+  </script>
+</html>

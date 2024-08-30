@@ -246,7 +246,7 @@ window.onload = displaySlides();
 <iframe src="/assets/Screenshot/index.html" scrolling="auto" frameborder="0" style="width:100%;height:30rem;" >
 </iframe>
 
-::: info 利用库实现浏览器截图 
+::: info 利用库实现浏览器截图
 
 我将向您展示如何从网页中使用javascript进行屏幕截图！我们将使用html2canvs库从带有javascript编码的网站上截屏
 
@@ -292,3 +292,8 @@ window.onload = displaySlides();
 ```
 
 :::
+
+## JS原生弹窗
+
+<iframe src="/assets/Dialog/index.html" scrolling="auto" frameborder="0" style="width:100%;height:35rem;" >
+</iframe>
