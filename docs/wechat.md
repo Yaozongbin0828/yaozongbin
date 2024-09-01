@@ -1,3 +1,3 @@
 ## wechat
 
-![img](./image/wechat.jpg "wechat")
+![1725150944733](image/wechat/1725150944733.png)

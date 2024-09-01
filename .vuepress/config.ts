@@ -69,13 +69,27 @@ export default defineUserConfig({
         },
         {
           text: "UI框架",
-          children: ["ElementPlus", "NavieUI", "AntDesignUI", "VantUI"],
+          children: [
+            "ElementPlus",
+            "NavieUI",
+            "AntDesignUI",
+            "VantUI",
+            "uv-ui",
+          ],
         },
       ],
       "/docs/backend/": [
         {
-          text: "后端",
-          children: ["Java"],
+          text: "后端编程语言",
+          children: ["Java", "Node.js", "MySQL", "SQLServer", "Oracle", "Go"],
+        },
+        {
+          text: "后端框架",
+          children: ["SpringBoot"],
+        },
+        {
+          text: "后端容器化和虚拟化技术",
+          children: ["Docker", "Kubernetes"],
         },
       ],
     },
@@ -105,7 +119,7 @@ export default defineUserConfig({
         icon: "HeatMap",
         link: "",
         children: [
-          { text: "git", link: "/docs/git_use/git_1" },
+          { text: "Git", link: "/docs/git_use/git_1" },
           { text: "vuepress-reco", link: "/docs/theme-reco/theme" },
           { text: "vuepress-theme-reco", link: "/blogs/other/guide" },
         ],

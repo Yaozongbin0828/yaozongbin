@@ -1,5 +1,5 @@
 ---
-title: Java后端自学之路
+title: Java
 date: 2023/10/31
 tags:
  - Java
