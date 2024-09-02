@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-52849530","path":"/yaozongbin/docs/backend/Kubernetes.html","title":"Kubernetes","lang":"en-US","frontmatter":{"title":"Kubernetes","date":"2024/9/01","tags":["Kubernetes"],"categories":["后端"]},"headers":[],"git":{"createdTime":null,"updatedTime":null,"contributors":[]},"filePathRelative":"yaozongbin/docs/backend/Kubernetes.md"}');export{e as data};

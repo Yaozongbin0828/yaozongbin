@@ -26,7 +26,7 @@ export default defineUserConfig({
     docsBranch: "main",
     docsDir: "example",
     lastUpdatedText: "",
-    colorMode: "dark", //  默认主题颜色
+    //colorMode: "dark",   默认主题颜dark色
     // series 为原 sidebar
     series: {
       sidebarDepth: 1,

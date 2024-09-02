@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-3f730e06","path":"/yaozongbin/docs/backend/Go.html","title":"Go","lang":"en-US","frontmatter":{"title":"Go","date":"2024/9/01","tags":["Go"],"categories":["后端"]},"headers":[],"git":{"createdTime":null,"updatedTime":null,"contributors":[]},"filePathRelative":"yaozongbin/docs/backend/Go.md"}');export{e as data};
