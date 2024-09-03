@@ -1,0 +1,1 @@
+import{_ as r,o as t,c as a,a as e,d as c}from"./app-Zk6-SBgD.js";const o={},s=e("h2",{id:"前言",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#前言","aria-hidden":"true"},"#"),c(" 前言")],-1),n=[s];function _(d,i){return t(),a("div",null,n)}const l=r(o,[["render",_],["__file","SQLServer.html.vue"]]);export{l as default};
