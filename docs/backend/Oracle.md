@@ -112,3 +112,83 @@ Oracle实例=进程+进程所使用的内存（SGA）
 `Exit` 退出
 
 :::
+
+## 用系统用户登录Oracle
+
+::: info 只有合法的用户账号才能访问Oracle数据库
+
+::: warning Oracle默认的系统用户
+
+* sys:权限最大的用户，超级用户，只能用sys/dba登录
+* system：没有sys权限大，可以直接登录
+* sysman:用于管理EM管理的用户
+* scott：普通用户，默认密码时tiger
+
+```sql
+conn sys/oracle as sysdba
+
+conn system/oracle
+```
+
+:::
+
+## Oracle用户登录的语法格式
+
+```sql
+conn sys/oracle @orcl as sysdba
+
+<!--连接默认数据库-->
+conn sys/oracle as sysdba 
+
+conn system/oracle
+```
+
+## 启用Scott用户
+
+```sql
+<!--切换到sys用户-->
+conn sys/oracle as sysdba
+
+<!--解锁-->
+alter user scott account unlock
+
+<!--登录-->
+conn scott/tiger
+```
+
+## 创建表空间
+
+::: info 什么是表空间
+
+表空间实际上时数据库上的逻辑存储结构
+
+表空间实际由一个或多个数据文件构成的，数据文件的位置和大小可以由我们用户自己来定义。
+
+![1725461038654](image/Oracle/1725461038654.png)
+
+:::
+
+::: info 表空间的分类
+
+* 永久表空间：系统空间，存储了数据字典，存储了数据信息，用户信息等
+* 临时表空间：必须存在，当commit后，会从临时表空间清空，然后存到永久表空间去。
+* UNDO表空间：commit后发现搞错了，可以用这个恢复
+
+:::
+
+::: info 创建表空间的语法格式
+
+```sql
+conn sys/oracle as sysdba
+<!--创建表空间-->
+create tablespace test1_tablespace datafile 'test1file.dbf' size 10m;
+
+<!--创建临时表空间-->
+create temporary tablespace temptest1_tablespace tmpfile 'tempfile1.dbf' size 10m;
+
+<!--查询表空间的位置-->
+select file_name from dba_data_files where tablespace_name = 'TEST1——TABLESPACE'
+
+```
+
+:::
