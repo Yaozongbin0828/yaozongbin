@@ -10,7 +10,7 @@ bannerBrand:
   bgImage: '/bg.svg'
   title: 姚宗彬の博客
   description: 为学应尽毕生力，攀高须贵少年时
-  tagline: 绚烂如电 虚幻如雾 哀愁和仰慕 - 「陈奕迅」
+  tagline: A vida é feita de escolhas. -「Paulo Coelho」
   buttons:
     - { text: 关于我, link: '/blogs/author/Author' }
     - { text: 加载中..., link: '/',type: 'plain'}
