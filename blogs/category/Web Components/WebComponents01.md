@@ -4,7 +4,7 @@ date: 2024/9/06
 tags:
  - Web Components
 categories:
- - 前端
+ - Web Components
 hideComments: false
 ---
 ## 前言
@@ -40,7 +40,6 @@ Web Components 是可以直接被浏览器渲染的自定义组件 。
 而 Web Components 的出现可以打破这种局面。因为 Web Components 是原生支持的，理论上可以实现无框架、无编译的组件库。如果有一套组件库是基于 Web Components 技术开发的，那么就可以运用到任意 Web 项目，自然也包括 Vue2 & Vue3 & React 等 Web 框架
 
 ![1725588901346](image/WebComponents01/1725588901346.jpg)
-
 
 :::
 

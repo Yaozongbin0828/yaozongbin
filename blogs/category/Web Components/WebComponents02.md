@@ -4,7 +4,7 @@ date: 2024/9/07
 tags:
  - Web Components
 categories:
- - 前端
+ - Web Components
 hideComments: false
 ---
 ## 前言
@@ -284,7 +284,7 @@ window.customElements.define('custom-button', CustomButton);
 <custom-button text="自定义按钮文字"></custom-button>
 ```
 
-::: 
+:::
 
 ::: info JS
 
