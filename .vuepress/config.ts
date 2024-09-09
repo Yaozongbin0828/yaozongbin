@@ -42,10 +42,10 @@ export default defineUserConfig({
         },
       ],
       // git
-      "/docs/git_use/": [
+      "/docs/git/": [
         {
           text: "Git的使用方法",
-          children: ["git_1", "git_2", "git_3", "git_4"],
+          children: ["git01", "git02", "git03", "git04"],
         },
       ],
       // 前端
@@ -119,7 +119,7 @@ export default defineUserConfig({
         icon: "HeatMap",
         link: "",
         children: [
-          { text: "Git", link: "/docs/git_use/git_1" },
+          { text: "Git", link: "/docs/git/git01" },
           { text: "vuepress-reco", link: "/docs/theme-reco/theme" },
           { text: "vuepress-theme-reco", link: "/blogs/other/guide" },
         ],

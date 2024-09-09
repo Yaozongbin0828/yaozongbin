@@ -192,3 +192,76 @@ select file_name from dba_data_files where tablespace_name = 'TEST1——TABLESP
 ```
 
 :::
+
+## Oracle的用户管理
+
+::: info 查看创建的用户
+
+```sql
+<!--查看所有用户表-->
+select username from dba_users;
+```
+
+:::
+
+::: info 给创建的用户授权
+
+```sql
+grant 权限 to 用户名
+```
+
+:::
+
+## Oracle的角色管理
+
+::: info 什么时角色
+
+角色就是一组权限
+
+用户可以给角色赋予指定的权限，然后将角色赋给相应的用户
+
+:::
+
+::: warning 角色的作用
+
+![1725840419115](image/Oracle/1725840419115.png)
+
+:::
+
+::: warning 三种标准的角色
+
+![1725840545149](image/Oracle/1725840545149.png)
+
+```sql
+连接
+conn /as sysdba
+创建用户
+create user user01 identified by pass01;
+连接（会报错，显示没有连接权限）
+conn user user01/pass01
+授权
+grant conn to user01
+连接成功
+conn user01/pass01
+创建表（会报错，权限不足）
+create table test(id number,name varchar2(20));
+连接到超级用户
+conn /as sysdba
+授权资源角色
+grant resource to user01
+连接子用户
+conn user01/pass01
+创建表成功
+create table test(id number,name varchar2(20));
+创建用户2（错误，权限不足）
+create user02 identified by pass02
+连接超级用户
+conn /as sysdba
+授权dba角色
+grant dba to user01;
+创建user02成功
+create user02 identified by pass02
+
+```
+
+:::
