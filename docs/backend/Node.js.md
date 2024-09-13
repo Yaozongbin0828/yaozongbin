@@ -43,3 +43,25 @@ categories:
 ![1725940936036](image/Node.js/1725940936036.jpg)
 
 :::
+
+## Node.js架构
+
+*我们编写的JavaScript代码会经过V8引擎，再通过Node.js的Bindings，将任务放到Libuv的事件循环中*
+
+*libuv（ Unicorn Velociraptor—独角伶盗龙）是使用C语言编写的库*
+
+*libuv提供了事件循环、文件系统读写、网络IO、线程池等等内容*
+
+![1726185915772](image/Node.js/1726185915772.jpg)
+
+## Node的版本工具
+
+*快速更新或切换多个版本时，可以借助于一些工具*
+
+::: info  Node的版本工具
+
+`nvm`： Node Version Manager
+
+：Interactively Manage Your Node.js Versions（交互式管理你的Node.js版本） （以上两个都不支持windows）
+
+:::
